@@ -28,7 +28,9 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/posts/:id/edit' do
+    binding.pry
     @post = Post.find_by_id(params[:id])
+
     erb :edit
   end
 
@@ -38,12 +40,14 @@ class ApplicationController < Sinatra::Base
     @post.content = params[:content]
     @post.save
     redirect to '/posts/:id'
+    # erb :show
   end
 
   post '/posts/:id/delete' do
     @post = Post.find_by_id(params[:id])
     @post.delete
     erb :delete
+
   end
 
 end
