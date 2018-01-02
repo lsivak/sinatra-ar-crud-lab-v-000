@@ -9,6 +9,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/posts/new' do
+    binding.pry
     erb :new
   end
 
@@ -18,6 +19,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/posts' do
+    binding.pry
     @posts = Post.all
     erb :index
   end
@@ -35,6 +37,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/posts/:id' do
+    binding.pry
     @post = Post.find_by_id(params[:id])
     @post.name = params[:name]
     @post.content = params[:content]
