@@ -1,4 +1,4 @@
-class Posts < ActiveRecord::Migration
+class Posts < ActiveRecord::Migration[4.2]
   def change
     create_table :posts do |p|
       p.string :name
